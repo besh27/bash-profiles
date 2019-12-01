@@ -1,0 +1,12 @@
+# pihole navigation
+alias l='ls -la'
+alias conf='sudo raspi-config'
+alias re='source ~/.bashrc'
+alias pro='vi ~/.bashrc'
+alias ref='perldoc perlreref'
+alias www='cd ~/../../var/www/html/pihole'
+
+# pihole data
+alias watch='sudo tail -F /var/log/pihole.log'
+
+# Documentation: https://docs.pi-hole.net/core/pihole-command/
