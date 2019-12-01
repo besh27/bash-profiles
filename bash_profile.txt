@@ -20,5 +20,6 @@ search() { history | grep $1;}
 count() { history | grep -c $1;}
 cdls() { cd "$@" && ls; }
 
-# Open dir in VSCode
-open() { pwd | read -r var; cd $var/$1 & code . }
+# Open existing and new dir in VSCode
+open() { pwd | read -r var; cd $var/$1; code .; }
+develop() { mkdir $1;  open;}
