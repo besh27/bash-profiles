@@ -11,7 +11,6 @@ alias globals='npm list -g --depth=0'
 alias shells='cat /etc/shells'
 alias rc='cd ~/; l | grep rc || grep bash_profile'
 
-
 # Dir Locations
 alias d="cd ~/Documents && pwd && l"
 alias a="cd ~/Documents/apps && pwd && l"
@@ -21,7 +20,7 @@ alias r="cd ~/Documents/../../.. && pwd && l"
 alias ga="cd ~/Documents/games && pwd && l"
 
 #References and servers
-alias pihole="ssh pi@10.0.0.137"
+alias pihole="ssh pi@address"
 alias pro="vim ~/.bash_profile"
 alias ref="perldoc perlreref"
 alias chelp="vim ~/.bash_help"
