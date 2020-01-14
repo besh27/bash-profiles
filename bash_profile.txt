@@ -1,25 +1,48 @@
-# Navigaion Tools
+# Tools
 alias cl="clear && pwd"
 alias l="ls -la"
 alias re="source ~/.bash_profile"
-alias ..="cd .."
-alias ...="cd ../.."
+alias b="cd ..; l"
+alias bb="cd ../..; l"
+go() { cd "$@" && l; }
+alias mongodb='~/mongodb/bin/mongod --dbpath ~/Documents/data/db'
+alias running='ps wuax | grep mongo'
+alias globals='npm list -g --depth=0'
+alias shells='cat /etc/shells'
+alias rc='cd ~/; l | grep rc || grep bash_profile'
+
 
 # Dir Locations
-alias d="cd ~/Documents && ls -la"
-alias a="cd ~/Documents/apps && ls -la"
-alias c="cd ~/Documents/classes && ls -la"
+alias d="cd ~/Documents && pwd && l"
+alias a="cd ~/Documents/apps && pwd && l"
+alias c="cd ~/Documents/classes && pwd && l"
+alias p="cd ~/Documents/apps/python && pwd && l"
+alias r="cd ~/Documents/../../.. && pwd && l"
+alias ga="cd ~/Documents/games && pwd && l"
 
+#References and servers
+alias pihole="ssh pi@10.0.0.137"
 alias pro="vim ~/.bash_profile"
 alias ref="perldoc perlreref"
-alias pihole="ssh pi@ipaddress"
+alias chelp="vim ~/.bash_help"
 alias retropi="ssh pi@ipaddress"
+alias notes="vim ~/.notes"
+alias dosbox="vim ~/Library/Preferences/DOSBox\ 0.74-3\ Preferences"
 
 # Functions
 search() { history | grep $1;}
 count() { history | grep -c $1;}
 cdls() { cd "$@" && ls; }
 
-# Open existing and new dir in VSCode
-open() { pwd | read -r var; cd $var/$1; code .; }
-develop() { mkdir $1;  open;}
+findLinks() {
+wget -q $1 -O - | \
+    tr "\t\r\n'" '   "' | \
+    grep -i -o '<a[^>]\+href[ ]*=[ \t]*"\(ht\|f\)tps\?:[^"]\+"' | \
+    sed -e 's/^.*"\([^"]\+\)".*$/\1/g'
+}
+
+findL() { findLinks >> unitedOutPut.txt;}
+
+# Open dir in VSCode
+develop() { mkdir $1; cd $1; code .;}
+
