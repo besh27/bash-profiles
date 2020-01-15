@@ -10,6 +10,9 @@ alias running='ps wuax | grep mongo'
 alias globals='npm list -g --depth=0'
 alias shells='cat /etc/shells'
 alias rc='cd ~/; l | grep rc || grep bash_profile'
+alias ss='du -sh * | sort -h'
+alias sh='ls -t -1'
+alias path='echo -e ${PATH//:/\\n}'
 
 # Dir Locations
 alias d="cd ~/Documents && pwd && l"
